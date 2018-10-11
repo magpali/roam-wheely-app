@@ -25,22 +25,38 @@ class OptionsInputViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let inputView = optionsInputView else { return }
-        
+        _ = self.addSubviews()
+                .setupConstraints()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    private func addSubviews() -> OptionsInputViewController {
+        guard let inputView = optionsInputView else { return self }
         view.addSubview(inputView)
+        return self
+    }
+    
+    private func setupConstraints() -> OptionsInputViewController {
+        guard let inputView = optionsInputView else { return self }
         inputView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         inputView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         inputView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         inputView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         inputView.translatesAutoresizingMaskIntoConstraints = false
+        return self
     }
-
+    
 }
 
 extension OptionsInputViewController: OptionInputProtocol {
     
     func doneAction() {
-        print("done")
+        let spinWheelViewController = SpinWheelViewController(options: options)
+        navigationController?.pushViewController(spinWheelViewController, animated: true)
     }
     
     func addOption(option: String) {
