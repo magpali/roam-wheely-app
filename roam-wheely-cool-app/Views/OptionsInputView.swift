@@ -49,6 +49,7 @@ class OptionsInputView: UIView {
     
     public func reloadOptions() {
         optionsTableView.reloadData()
+        
     }
     
     private func registerDelegates() -> OptionsInputView {
@@ -116,7 +117,8 @@ class OptionsInputView: UIView {
     }
     
     @objc private func addOption() {
-        guard let text = optionTextField.text, !text.isEmpty else { return }
+        guard let text = optionTextField.text,
+            !text.trimmingCharacters(in: .whitespaces).isEmpty else { return }
         optionTextField.text = nil
         optionInputDelegate?.addOption(option: text)
     }

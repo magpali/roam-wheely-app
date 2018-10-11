@@ -53,9 +53,11 @@ extension OptionsInputViewController: OptionInputProtocol {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard options.indices.contains(indexPath.row),
+        let position = options.count - 1 - indexPath.row
+        guard options.indices.contains(position),
             let inputView = optionsInputView else { return UITableViewCell() }
-        return inputView.getCellFor(option: options[indexPath.row])
+        
+        return inputView.getCellFor(option: options[position])
     }
     
 }
