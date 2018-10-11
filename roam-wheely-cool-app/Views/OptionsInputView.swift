@@ -24,7 +24,7 @@ class OptionsInputView: UIView {
 
     weak var optionInputDelegate: OptionInputProtocol?
     
-    init<T>(delegate: T) where T: OptionInputProtocol {
+    init(delegate: OptionInputProtocol) {
         optionInputDelegate = delegate
         
         super.init(frame: .zero)
