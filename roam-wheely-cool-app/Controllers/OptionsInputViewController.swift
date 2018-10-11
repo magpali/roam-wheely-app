@@ -11,7 +11,7 @@ import UIKit
 class OptionsInputViewController: UIViewController {
     
     private var optionsInputView: OptionsInputView?
-    private var options: [String] = []
+    private var options: [String] = UserDefaultsHelper.options
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -60,7 +60,16 @@ extension OptionsInputViewController: OptionInputProtocol {
     }
     
     func addOption(option: String) {
-        options.append(option)
+        options.insert(option, at: 0)
+        UserDefaultsHelper.options.insert(option, at: 0)
+        optionsInputView?.reloadOptions()
+    }
+    
+    func removeOption(at index: Int) {
+        guard options.indices.contains(index),
+            UserDefaultsHelper.options.indices.contains(index) else { return }
+        options.remove(at: index)
+        UserDefaultsHelper.options.remove(at: index)
         optionsInputView?.reloadOptions()
     }
     
@@ -69,11 +78,20 @@ extension OptionsInputViewController: OptionInputProtocol {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let position = options.count - 1 - indexPath.row
-        guard options.indices.contains(position),
+        guard options.indices.contains(indexPath.row),
             let inputView = optionsInputView else { return UITableViewCell() }
         
-        return inputView.getCellFor(option: options[position])
+        return inputView.getCellFor(option: options[indexPath.row])
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            removeOption(at: indexPath.row)
+        }
     }
     
 }

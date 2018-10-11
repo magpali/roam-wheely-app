@@ -44,6 +44,7 @@ class OptionsInputView: UIView {
         let cell = optionsTableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) ?? UITableViewCell()
         cell.textLabel?.text = option
         cell.backgroundColor = .clear
+        cell.selectionStyle = .none
         return cell
     }
     
