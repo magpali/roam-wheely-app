@@ -15,6 +15,8 @@
 		AC25E8BE216F1D5300CBACC4 /* SpinWheelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC25E8BD216F1D5300CBACC4 /* SpinWheelViewController.swift */; };
 		AC25E8C0216F3DFF00CBACC4 /* WheelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC25E8BF216F3DFF00CBACC4 /* WheelView.swift */; };
 		AC25E8C2216F421600CBACC4 /* RadiansHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC25E8C1216F421600CBACC4 /* RadiansHelper.swift */; };
+		AC25E8C4216F502F00CBACC4 /* TriangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC25E8C3216F502F00CBACC4 /* TriangleView.swift */; };
+		AC25E8C8216F582B00CBACC4 /* SpinWheelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC25E8C7216F582B00CBACC4 /* SpinWheelView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		AC25E8BD216F1D5300CBACC4 /* SpinWheelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinWheelViewController.swift; sourceTree = "<group>"; };
 		AC25E8BF216F3DFF00CBACC4 /* WheelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelView.swift; sourceTree = "<group>"; };
 		AC25E8C1216F421600CBACC4 /* RadiansHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadiansHelper.swift; sourceTree = "<group>"; };
+		AC25E8C3216F502F00CBACC4 /* TriangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriangleView.swift; sourceTree = "<group>"; };
+		AC25E8C7216F582B00CBACC4 /* SpinWheelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinWheelView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +79,9 @@
 			isa = PBXGroup;
 			children = (
 				AC25E8BB216F040C00CBACC4 /* OptionsInputView.swift */,
+				AC25E8C7216F582B00CBACC4 /* SpinWheelView.swift */,
 				AC25E8BF216F3DFF00CBACC4 /* WheelView.swift */,
+				AC25E8C3216F502F00CBACC4 /* TriangleView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -159,6 +165,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC25E8C8216F582B00CBACC4 /* SpinWheelView.swift in Sources */,
+				AC25E8C4216F502F00CBACC4 /* TriangleView.swift in Sources */,
 				AC25E8B8216F035E00CBACC4 /* OptionsInputViewController.swift in Sources */,
 				AC25E8A6216F01D100CBACC4 /* AppDelegate.swift in Sources */,
 				AC25E8C0216F3DFF00CBACC4 /* WheelView.swift in Sources */,

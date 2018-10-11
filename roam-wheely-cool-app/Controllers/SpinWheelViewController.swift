@@ -23,12 +23,8 @@ class SpinWheelViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .lightGray
         
-        let spinWheel = WheelView(options: options, diameter: 300)
-        view.addSubview(spinWheel)
-        spinWheel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        spinWheel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        configViews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,5 +32,15 @@ class SpinWheelViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
+    private func configViews() {
+        view.backgroundColor = .lightGray
+        let spinWheelView = SpinWheelView(options: options, wheelDiameter: view.bounds.width - 32)
+        view.addSubview(spinWheelView)
+        spinWheelView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        spinWheelView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        spinWheelView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        spinWheelView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        spinWheelView.translatesAutoresizingMaskIntoConstraints = false
+    }
     
 }

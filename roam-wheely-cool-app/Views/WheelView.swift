@@ -71,7 +71,7 @@ class WheelView: UIView {
         }
     }
     
-    @objc private func randomSpin() {
+    @objc public func randomSpin() {
         
         spin360 { (complete) in
             self.spin360 { (complete) in
