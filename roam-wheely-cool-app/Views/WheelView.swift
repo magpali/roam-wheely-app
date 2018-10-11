@@ -12,6 +12,7 @@ class WheelView: UIView {
 
     private let diameter: CGFloat
     private let options: [String]
+    private var angles: [Int] = []
     
     init(options: [String], diameter: CGFloat) {
         self.diameter = diameter
@@ -52,6 +53,7 @@ class WheelView: UIView {
             label.translatesAutoresizingMaskIntoConstraints = false
             
             let rotationAngle = (360/options.count) * count
+            angles.append(rotationAngle)
             label.transform = CGAffineTransform(rotationAngle: rotationAngle.toRadians())
             count += 1;
         }
@@ -76,7 +78,8 @@ class WheelView: UIView {
         spin360 { (complete) in
             self.spin360 { (complete) in
                 self.spin360 { (complete) in
-                    let randomAngle = Int(arc4random_uniform(359))
+                    let randomAngleIndex = Int(arc4random_uniform(UInt32(self.angles.count)))
+                    let randomAngle = self.angles[randomAngleIndex]
                     if randomAngle < 180 {
                         UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseOut], animations: {
                             self.transform = CGAffineTransform(rotationAngle: randomAngle.toRadians())
